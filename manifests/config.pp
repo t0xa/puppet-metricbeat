@@ -71,11 +71,11 @@ class metricbeat::config inherits metricbeat {
   }
 
   # Create modules.d files that exist in hiera then collect any created via exported resources
-  $module_templates_real = hiera_array('metricbeat::module_templates', $metricbeat::module_templates)
-  $module_templates_real.each |$module| {
-    @@metricbeat::modulesd { $module: }
-  }
-  Metricbeat::Modulesd <<||>>
+  # $module_templates_real = hiera_array('metricbeat::module_templates', $metricbeat::module_templates)
+  #$module_templates_real.each |$module| {
+  #  @@metricbeat::modulesd { $module: }
+  #}
+  #Metricbeat::Modulesd <<||>>
 
   case $::kernel {
     'Linux': {
